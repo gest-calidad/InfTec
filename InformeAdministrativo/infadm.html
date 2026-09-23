@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Administrativo</title>
+
+    <link rel="stylesheet" href="notocar/diseño.css">
+    <link rel="stylesheet" href="notocar/impresion.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <header>
+
+        <div class="logo">
+            <img src="notocar/logo_rosario.png" alt="Municipalidad de Rosario">
+        </div>
+
+        <div class="titulo">
+
+            <h1>INFORME ADMINISTRATIVO</h1>
+
+            <p>
+                Dirección General de Habilitación de Industrias,
+                Comercios y Servicios
+            </p>
+
+        </div>
+
+        <div class="solicitud">
+
+            <label>Solicitud Nº</label>
+            <input type="text" id="solicitud" name="solicitud">
+
+        </div>
+        <div class="panel-superior">
+
+            <div class="acciones-header">
+
+                <button id="btnAbrir">📂 Abrir formulario</button>
+                <button id="btnGuardar">💾 Guardar formulario</button>
+
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Sección 1 -->
+    <section class="bloque">
+
+        <div class="bloque-titulo">
+            1. DATOS DECLARADOS EN LA PLATAFORMA DE HABILITACIONES
+        </div>
+
+        <div class="bloque-contenido">
+
+            <div class="campo">
+
+                <label>Tipo de trámite</label>
+
+                <div class="opciones">
+
+                    <label><input type="checkbox" id="apertura" name="tramite" value="Apertura"  onchange="actualizarFormulario()"> Apertura</label>
+
+                    <label><input type="checkbox" id="renovacion" name="tramite" value="Renovación"  onchange="actualizarFormulario()"> Renovación</label>
+
+                    <label><input type="checkbox" id="transferencia" name="tramite" value="Transferencia"  onchange="actualizarFormulario()"> Transferencia</label>
+
+                    <label><input type="checkbox" id="anexoRubro" name="tramite" value="Anexo de Rubro"  onchange="actualizarFormulario()"> Anexo de Rubro</label>
+
+                    <label><input type="checkbox" id="bajaRubro" name="tramite" value="Baja de Rubro"  onchange="actualizarFormulario()"> Baja de Rubro</label>
+
+                    <label><input type="checkbox" id="cambioActividad" name="tramite" value="Cambio de Actividad"  onchange="actualizarFormulario()"> Cambio de Actividad</label>
+
+                    <label><input type="checkbox" id="traslado" name="tramite" value="Traslado"  onchange="actualizarFormulario()"> Traslado</label>
+
+                    <label><input type="checkbox" id="cambioSuperficie" name="tramite" value="Cambio de Superficie"  onchange="actualizarFormulario()"> Cambio de Superficie</label>
+
+                </div>
+
+            </div>
+
+            <div class="fila">
+
+                <div class="campo flex2">
+
+                    <label>Titular</label>
+
+                    <input type="text" name="titular"  >
+
+                </div>
+                <div class="campo flex2">
+
+                    <label>CUIT</label>
+
+                    <input type="text" name="titular" placeholder="Revisar establecimientos con el CUIT">
+
+                </div>
+
+            </div>
+
+            <div class="fila">
+
+                <div class="campo flex2">
+
+                    <label>Dirección</label>
+
+                    <input type="text" name="direccion">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Superficie</label>
+
+                    <input type="text" name="superficie">
+
+                </div>
+
+            </div>
+
+            <div class="fila">
+
+                <div class="campo flex2">
+
+                    <label>Datos Catastrales</label>
+
+                    <input type="text" name="datosCatastrales" placeholder="">
+
+                </div>
+
+            </div>
+
+            <div class="fila">
+
+                <div class="campo flex2">
+
+                    <label>Actividad a habilitar (en caso de Anexo de rubro, especificar)</label>
+
+                    <textarea
+                        name="actividad"
+                        rows="4">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<!-- Sección 2 -->
+<section class="bloque">
+
+    <div class="bloque-titulo">
+        2. REVISIÓN PREVIA AL LLAMADO
+    </div>
+
+    <div class="bloque-contenido">
+
+        <h3 class="subtitulo">Ubicación</h3>
+
+        <div class="nota-procedimiento">
+
+                <p>
+                    Realizar el análisis de los datos ingresados en <strong>Ubicación</strong>
+                    mediante los sistemas de <strong>Catastro</strong> e
+            <strong>Infomapa</strong>.
+                </p>
+
+        <p>
+        En trámites de <strong>Renovación</strong>, se recomienda revisar la ficha
+        anterior tanto en papel como en la Plataforma de Habilitaciones y verificar que, en los casos de Propiedad Horizontal (PH),
+        correspondan los lotes declarados.
+        </p>
+
+        </div>
+        
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Domicilio, coincide con Catastro?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="catastro1" value="Si"> Sí</label>
+                <label><input type="radio" name="catastro1" value="No"> No</label>
+            </div>
+
+            <textarea name="catastro1Obs" placeholder="Observaciones..."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Hay relación entre la superficie de Catastro y la declarada en el trámite?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="catastro2" value="Si"> Sí</label>
+                <label><input type="radio" name="catastro2" value="No"> No</label>
+            </div>
+
+            <div class="fila">
+
+                <div class="campo">
+                    <label>Catastro</label>
+                    <input type="text" name="catastroSuperficie" placeholder="Detallar la suma total de las parcelas declaradas según catastro">
+                </div>
+
+                <div class="campo">
+                    <label>Trámite</label>
+                    <input type="text" name="tramiteSuperficie" placeholder="Detallar la suma total de las parcelas declaradas según el trámite">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                Según Catastro e Infomapa, ¿Es Propiedad Horizontal?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="catastro3" value="Si"> Sí</label>
+                <label><input type="radio" name="catastro3" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="catastro3Obs" placeholder="Ingrese observaciones..."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                En caso de que haya más de un lote: ¿según Infomapa, son parcelas contiguas?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="catastro4" value="Si"> Sí</label>
+                <label><input type="radio" name="catastro4" value="No"> No</label>
+                <label><input type="radio" name="catastro4" value="No corresponde"> No corresponde</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="catastro4Obs" placeholder="Ingrese observaciones..."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿El inmueble tiene protección patrimonial?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="catastro5" value="Si"> Sí</label>
+                <label><input type="radio" name="catastro5" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="catastro5Obs" placeholder="Importante prestar especial atención a este punto"></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                Según Infomapa ¿La imagen brinda alguna información adicional?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="catastro6" value="Si"> Sí</label>
+                <label><input type="radio" name="catastro6" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="catastro6Obs" placeholder="Se recomienda utilizar 'Fotos Aereas' y prestar atención a los detalles alrededor del lote. Anotar estos detalles que sirven como información adicional"></textarea>
+
+        </div>
+
+        <h3 class="subtitulo">Marcas y Antecedentes</h3>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Hay trámite/s ingresado/s en la misma ubicación?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="marca1" value="Si"> Sí</label>
+                <label><input type="radio" name="marca1" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="marca1Obs" placeholder="Ingrese observaciones..."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Posee algún tipo de marca en el trámite?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="marca2" value="Si"> Sí</label>
+                <label><input type="radio" name="marca2" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="marca2Obs" placeholder="Revisar si coincide con la DDJJ. Especificar."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Posee algún antecedente en el establecimiento?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="marca3" value="Si"> Sí</label>
+                <label><input type="radio" name="marca3" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="marca3Obs" placeholder="Ingrese observaciones...
+            "></textarea>
+
+        </div>
+
+        <h3 class="subtitulo">Actividad y requisitos</h3>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Hay concordancia entre "Actividad" y "Destino" con la "Actividad a habilitar"?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="ayr1" value="Si"> Sí</label>
+                <label><input type="radio" name="ayr1" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="ayr1Obs" placeholder="Ingrese observaciones..."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                Requisitos específicos por la actividad, ¿se encuentran vigentes y condicen con el titular y la ubicación?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="ayr2" value="Si"> Sí</label>
+                <label><input type="radio" name="ayr2" value="No"> No</label>
+                <label><input type="radio" name="ayr2" value="No corresponde"> No corresponde</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="ayr2Obs" placeholder="Ingrese observaciones..."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Adicionales declarados? (Publicidad, toldo, mesas)
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="ayr3" value="Si"> Sí</label>
+                <label><input type="radio" name="ayr3" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="ayr3Obs" placeholder="Tener en cuenta las publicidades que llevan permiso y las que no. En caso de mesas y sillas, ¿se encuentran pedidas conforme a una actividad que las permite?"></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                Resumen
+            </label>
+        <div class="nota-procedimiento">
+
+
+                <p>
+Realizar un breve resumen de lo analizado en donde se aclaren detalles o información a tener en cuenta, asi como las diferencias o incongruencias encontradas para tener en cuenta al momento del llamado con el contribuyente                </p>
+
+        </div>
+            <textarea
+                name="resumenPrevio">
+            </textarea>
+             
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Sección 3 -->
+<section class="bloque">
+
+    <div class="bloque-titulo">
+        3. INFORMACIÓN OBTENIDA DEL LLAMADO
+    </div>
+
+    <div class="bloque-contenido">
+
+        <div class="fila">
+
+            <div class="campo">
+                <label>Fecha del llamado</label>
+                <input type="date" name="fechaLlamado">
+            </div>
+
+            <div class="campo">
+                <label>Atendido Por:</label>
+                <select name="Atendido por:" id="atendidoPor">
+                    <option value="Titular">Titular/Familiar del titular</option>
+                    <option value="Gestor">Gestor/Contador/Representante Legal</option>
+                    <option value="Otro">Otro (aclarar)</option>
+                </select>
+                <div id="otroAtendido" style="display:none; margin-top:12px;">
+
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="fila" id="otroAtendido" style="display:none;">
+
+    <div class="campo"></div>
+
+    <div class="campo">
+        <label>Especificar quién atendió</label>
+        <input
+            type="text"
+            name="otroAtendido"
+            placeholder="Ej.: Empleado, Encargado, Socio, etc.">
+    </div>
+
+    </div>
+        
+        <div class="fila" id="datosRepresentante" style="display: none;">
+            
+
+            <div class="campo flex2">
+                <label>Nombre de la persona que atendió:</label><input type="text" name="nombreRepresentante">
+                
+            </div>    
+            <div class="campo flex2">
+                <label>Nombre del titular:</label>
+                <input type="text" name="nombreTitular">
+            </div>
+            <div class="campo flex2">
+                <label>Correo del titular:</label>
+                <input type="text" name="correoTitular">
+            </div>
+            <div class="campo flex2">
+                <label>Telefono del titular:</label>
+                <input type="text" name="telefonoTitular">
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿El titular ingresado es correcto?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="llamado1" value="Si"> Sí</label>
+                <label><input type="radio" name="llamado1" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="llamado1Obs" placeholder="Chequear que es correcto el nombre de quien quieren poner la habilitación. Ejemplo: Una sociedad que pone de titular únicamente al representante"></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿La actividad solicitada es correcta?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="llamado2" value="Si"> Sí</label>
+                <label><input type="radio" name="llamado2" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="llamado2Obs" placeholder="Se sugiere realizar preguntas conforme al rubro que se busca habilitar. Ejemplo: ¿Se realiza elaboración?"></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Domicilio, catastrales afectadas y superficie son correctos?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="llamado3" value="Si"> Sí</label>
+                <label><input type="radio" name="llamado3" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="llamado3Obs" placeholder="Ingrese observaciones..."></textarea>
+
+        </div>
+    <div id="bloqueRenovacion">
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                RENOVACIÓN - ¿Es solo renovación o hubo alguna modificación?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="llamado5" value="Si"> Solo renovación</label>
+                <label><input type="radio" name="llamado5" value="No"> Es una renovación con modificación/es</label>
+                <label><input type="radio" name="llamado5" value="No corresponde"> No corresponde</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="llamado5" placeholder="Cambio de nomencladores sigue siendo una Renovación pura"></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                RENOVACIÓN CON MODIFICACIÓN O MODIFICACIÓN DE ESTABLECIMIENTO / UBICACIÓN. ¿Es correcto el encuadre?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="llamado6" value="Si"> Sí</label>
+                <label><input type="radio" name="llamado6" value="No"> No</label>
+                <label><input type="radio" name="llamado6" value="No corresponde"> No corresponde   </label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="llamado0Obs" placeholder="Especificar a que corresponde. Anexo/baja de rubro, ampliación de superficie, traslado."></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                ¿Posee adicionales y todos fueron declarados?
+            </label>
+
+            <div class="respuesta">
+                <label><input type="radio" name="llamado4" value="Si"> Sí</label>
+                <label><input type="radio" name="llamado4" value="No"> No</label>
+            </div>
+
+            <label>Observaciones</label>
+            <textarea name="llamado0Obs" placeholder="Tener en cuenta las publicidades que llevan permiso y las que no. En caso de mesas y sillas, ¿se encuentran pedidas conforme a una actividad que las permite?"></textarea>
+
+        </div>
+
+        <div class="pregunta">
+
+            <label class="pregunta-titulo">
+                Información obtenida
+            </label>
+            <div class="nota-procedimiento">
+                <p>
+                Detallar la información relevante recibida, a partir de las preguntas realizadas al contribuyente.
+                </p>
+
+        </div>
+
+            <textarea
+                name="informacionObtenida"
+                placeholder="Detallar la información relevante recibida, a partir de las preguntas realizadas al contribuyente.">
+            </textarea>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Sección 4 -->
+<section class="bloque">
+
+    <div class="bloque-titulo">
+        4. CONCLUSIÓN
+    </div>
+    <div class="bloque-contenido">
+    <div class="nota-procedimiento">
+
+    <p>
+        Con la información brindada en los puntos
+        <strong>2. Revisión previa al llamado</strong> y
+        <strong>3. Información obtenida del llamado</strong>,
+        realizar una conclusión del análisis.
+    </p>
+
+    <p>
+        Cuando se encontraren incongruencias que pudieran ser
+        subsanadas, deberán detallarse a los fines de la posible
+        adecuación.
+    </p>
+
+    </div>
+
+    <div class="campo" style="margin-top:24px;">
+
+    <label>Conclusión del análisis</label>
+
+    <textarea
+        name="conclusionAnalisis"
+        rows="6"
+        placeholder="Redactar la conclusión del análisis realizado, indicando si corresponde avanzar con el trámite, solicitar adecuaciones o cualquier otra consideración relevante.">
+    </textarea>
+
+    <div class="nota-procedimiento">
+
+    <strong>Solo para trámites de Apertura y Modificación de establecimiento – Traslado.</strong><br><br>
+
+    Habiendo efectivizado a fines administrativos el encuadre del trámite,
+    in situ se coordina la visita preliminar.
+
+    </div>
+
+</div>
+
+        <div class="fila">
+
+            <div class="campo">
+                <label>Fecha de visita acordada</label>
+                <input type="date" name="fechaVisita">
+            </div>
+
+            <div class="campo">
+                <label>Técnico asignado</label>
+                <input type="text" name="tecnicoAsignado">
+            </div>
+
+        </div>
+
+        <p style="margin-top:25px;">
+            Con lo informado, se eleva a su consideración.
+        </p>
+
+        <div class="fila" style="margin-top:35px;">
+
+            <div class="administrativo">
+                <label>Administrativo responsable</label>
+                <input type="text" name="administrativoResponsable">
+            </div>
+        </div>
+        <div class="acciones-header">
+                <button id="btnPDF">📄 Generar PDF</button>
+
+
+            </div>
+
+    </div>
+
+   
+
+</section>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<input type="file" id="archivoFormulario" accept=".infadm" hidden>
+<script src="notocar/funciones.js"></script>
+
+</body>
+</html>

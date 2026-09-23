@@ -1,0 +1,122 @@
+@media print {
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
+    .contenedor {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Ocultar botones */
+
+    .acciones-header,
+    button {
+        display: none !important;
+    }
+
+    /* Mantener aspecto de formulario */
+
+    input:not([type="checkbox"]):not([type="radio"]),
+    textarea {
+
+        border: 1px solid #999 !important;
+        border-radius: 0 !important;
+        background: #fff !important;
+
+        color: black;
+        font: inherit;
+
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-appearance: none;
+        appearance: none;
+
+        box-sizing: border-box;
+    }
+
+    input[type="text"],
+    input[type="date"]{
+        height: 32px !important;
+        line-height: 32px !important;
+    }
+
+    textarea{
+        resize: none;
+        overflow: visible;
+    }
+
+    /* Solicitud */
+
+    .solicitud{
+        width: 280px !important;
+    }
+
+    .solicitud input{
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+
+    header{
+        grid-template-columns: 220px 1fr 300px !important;
+        gap: 30px !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    /* Los bloques no se parten */
+
+    .bloque{
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+        margin-bottom: 15px;
+    }
+
+    .pregunta,
+    .fila{
+        break-inside: avoid;
+    }
+
+    /* Mantener el azul */
+
+    .bloque-titulo{
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    
+}
+
+@media print {
+
+    .solicitud{
+
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+
+    }
+
+    .solicitud input{
+
+        width:250px !important;
+        height:auto;
+        padding:8px 10px;
+
+    }
+
+}
